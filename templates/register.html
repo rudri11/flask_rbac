@@ -1,0 +1,272 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0d0d0d 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 { color: #333; margin-bottom: 1.5rem; text-align: center; }
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-danger { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .form-group { margin-bottom: 1.5rem; }
+        label {
+            display: block;
+            color: #555;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #5f3c82;
+            transform: translateY(-2px);
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+        }
+        .login-link a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Please Register!</h2>
+        
+        <!-- Flash Messages -->
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="role">Select Role</label>
+                <select id="role" name="role" required>
+                    <option value="">Choose a role...</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">Register</button>
+        </form>
+        
+        <div class="login-link">
+            Already have an account? <a href="/login">Login here</a>
+        </div>
+    </div>
+</body> -->
+<!-- </html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <!-- Poppins (same as index/login) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:radial-gradient(circle at 20% 20%, #0a0a1a, #000);
+            overflow:hidden;
+            color:white;
+            font-family:'Poppins',sans-serif;
+        }
+
+        /* ---- Animated Gradient Wave ---- */
+        .wave{
+            position:absolute; bottom:0; width:200%; height:200px;
+            background:linear-gradient(90deg,#4f00ff,#00e1ff,#4f00ff);
+            background-size:200% 100%; opacity:0.6;
+            border-radius:100% 50%; filter:blur(40px); z-index:0;
+            animation:moveWaves 8s linear infinite, shiftColors 6s ease-in-out infinite alternate;
+        }
+        .wave:nth-child(2){ bottom:-30px; opacity:0.4; animation-delay:-4s; }
+
+        @keyframes moveWaves{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        @keyframes shiftColors{ 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+
+        /* ---- Glass Card ---- */
+        .content{
+            position:relative; z-index:2; width:100%; max-width:400px;
+            background:rgba(255,255,255,0.07);
+            backdrop-filter:blur(12px);
+            padding:2.5rem;
+            border-radius:15px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .content h2{
+            font-size:2rem; letter-spacing:1px; margin-bottom:1rem; text-align:center;
+        }
+        .content p{
+            color:#cfcfcf; font-size:1rem; margin-bottom:2rem; text-align:center;
+        }
+
+        /* Flash messages */
+        .alert{
+            padding:12px; border-radius:8px; margin-bottom:1rem;
+            font-size:14px; text-align:center;
+        }
+        .alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+        .alert-danger{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+
+        /* Form */
+        .form-group{margin-bottom:1.5rem;}
+        label{
+            display:block; color:#ddd; margin-bottom:.5rem; font-weight:500;
+        }
+        input[type="text"], input[type="password"], select{
+            width:100%; padding:14px 16px; border:none; border-radius:8px;
+            background:rgba(255,255,255,0.12); color:white; font-size:1rem;
+            outline:none; transition:.3s;
+        }
+        input::placeholder, select option{color:#bbb;}
+        input:focus, select:focus{
+            background:rgba(255,255,255,0.22);
+            box-shadow:0 0 0 2px #4f00ff;
+        }
+
+        .btn{
+            width:100%; padding:14px; border:none; border-radius:8px;
+            background:linear-gradient(90deg,#ff00b3,#ff7b00); /* same as Register button on index */
+            color:white; font-weight:600; font-size:1rem;
+            cursor:pointer; transition:.3s;
+        }
+        .btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 5px 20px rgba(255,255,255,0.2);
+        }
+
+        .login-link{
+            text-align:center; margin-top:1.5rem; font-size:.9rem; color:#bbb;
+        }
+        .login-link a{
+            color:#00e1ff; text-decoration:none; font-weight:600;
+        }
+        .login-link a:hover{ text-decoration:underline; }
+    </style>
+</head>
+<body>
+
+    <!-- Waves (identical) -->
+    <div class="wave"></div>
+    <div class="wave"></div>
+
+    <div class="content">
+        <h2>Please Register!</h2>
+        
+
+        <!-- Flask flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Select Role</label>
+                <select id="role" name="role" required>
+                    <option value="">Choose a role...</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="/login">Login here</a>
+        </div>
+    </div>
+
+</body>
+</html>

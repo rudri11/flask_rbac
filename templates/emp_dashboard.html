@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #0c0c0c;
+        }
+        .header {
+            background: linear-gradient(135deg, #fdcf04 0%, #f09708 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 { font-size: 1.8rem; }
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .welcome-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .profile-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .info-row {
+            display: flex;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #555;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Employee Dashboard</h1>
+        <div>
+            <span>Welcome, {{ session['username'] }}!</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Welcome,{{ session['username'] }}!</h2>
+            <p>This is your personal dashboard.</p>
+        </div>
+        
+        <div class="profile-section">
+            <h3>My Profile</h3>
+            <div class="info-row">
+                <div class="info-label">User ID:</div>
+                <div>#{{ user.id }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Username:</div>
+                <div>{{ user.username }}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Role:</div>
+                <div>{{ user.role }}</div>
+            </div>
+            <div class="Task-section">
+            <h3>My task</h3>
+            <div class="info-row">
+                <div class="info-label">Task:</div>
+                 <div>{{user.task}}</div>
+
+            </div>
+    
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
